@@ -26,8 +26,8 @@ class Ui_MainWindow(object):
         font = QFont()
         font.setFamily(u"Segoe UI")
         font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
+        font.setBold(True)
+       # font.setWeight(75)
         self.styleSheet.setFont(font)
         self.styleSheet.setStyleSheet(u"/* /////////////////////////////////////////////////////////////////////////////////////////////////\n"
 "\n"
@@ -590,8 +590,8 @@ class Ui_MainWindow(object):
         self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
         font1 = QFont()
         font1.setFamily(u"Segoe UI Semibold")
-        font1.setPointSize(12)
-        font1.setBold(False)
+        font1.setPointSize(13)
+        font1.setBold(True)
         font1.setItalic(False)
         self.titleLeftApp.setFont(font1)
         self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
@@ -925,6 +925,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.btn_adjustments)
 
+        self.horizontalSlider = QSlider(self.extraTopMenu)
+        self.horizontalSlider.setObjectName(u"horizontalSlider")
+        self.horizontalSlider.setStyleSheet(u"")
+        self.horizontalSlider.setOrientation(Qt.Horizontal)
+
+        self.verticalLayout_11.addWidget(self.horizontalSlider)
+
         # self.btn_more = QPushButton(self.extraTopMenu)
         # self.btn_more.setObjectName(u"btn_more")
         # sizePolicy.setHeightForWidth(self.btn_more.sizePolicy().hasHeightForWidth())
@@ -1153,12 +1160,12 @@ class Ui_MainWindow(object):
         self.frame_title_wid_1.setFrameShadow(QFrame.Raised)
         self.verticalLayout_18 = QVBoxLayout(self.frame_title_wid_1)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.labelBoxBlenderInstalation = QLabel(self.frame_title_wid_1)
-        self.labelBoxBlenderInstalation.setObjectName(u"labelBoxBlenderInstalation")
-        self.labelBoxBlenderInstalation.setFont(font)
-        self.labelBoxBlenderInstalation.setStyleSheet(u"")
-
-        self.verticalLayout_18.addWidget(self.labelBoxBlenderInstalation)
+        # self.labelBox = QLabel(self.frame_title_wid_1)
+        # self.labelBox.setObjectName(u"labelBox")
+        # self.labelBox.setFont(font)
+        # self.labelBox.setStyleSheet(u"")
+        #
+        # self.verticalLayout_18.addWidget(self.labelBox)
 
 
         self.verticalLayout_17.addWidget(self.frame_title_wid_1)
@@ -1515,7 +1522,70 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
 
-        self.labelList = QListWidget()
+        self.fileBox = QLabel(self.topMenus)
+        self.fileBox.setObjectName(u"fileBox")
+        self.fileBox.setFont(font)
+        self.fileBox.setStyleSheet(u"")
+        self.verticalLayout_14.addWidget(self.fileBox)
+
+        self.verticalLayout_14.addWidget(self.frame_title_wid_1)
+
+        #list
+        self.listWidget = QListWidget(self.topMenus)
+        self.listWidget.addItem("sparrow")
+        self.listWidget.addItem("robin")
+        #listWidget.itemDoubleClicked.connect(self.onClicked)
+        self.verticalLayout_14.addWidget(self.listWidget)
+        #self.setLayout(self.verticalLayout_14)
+        self.listWidget.setStyleSheet("QListWidget"
+                                  "{"
+                                  "border : 1px solid black;"
+                                  "background : rgb(33, 37, 43);"
+                                  "}"
+                                  "QListWidget QScrollBar"
+                                  "{"
+                                  "background : grey;"
+                                  "}"
+                                  "QListView::item:selected"
+                                  "{"
+                                  "border : 2px solid black;"
+                                  "background : grey;"
+                                  "}"
+                                  )
+        self.verticalLayout_14.addWidget(self.frame_title_wid_1)
+# LABEL BOX
+        self.labelBox = QLabel(self.topMenus)
+        self.labelBox.setObjectName(u"labelBox")
+        self.labelBox.setFont(font2)
+        self.labelBox.setStyleSheet(u"")
+        self.verticalLayout_14.addWidget(self.labelBox)
+
+
+
+        # list
+        self.listWidget = QListWidget(self.topMenus)
+        self.listWidget.addItem("rectangle")
+        self.listWidget.addItem("square")
+        # listWidget.itemDoubleClicked.connect(self.onClicked)
+        self.verticalLayout_14.addWidget(self.listWidget)
+        # self.setLayout(self.verticalLayout_14)
+        self.listWidget.setStyleSheet("QListWidget"
+                                      "{"
+                                      "border : 1px solid black;"
+                                      "background : rgb(33, 37, 43);"
+                                      "}"
+                                      "QListWidget QScrollBar"
+                                      "{"
+                                      "background : grey;"
+                                      "}"
+                                      "QListView::item:selected"
+                                      "{"
+                                      "border : 2px solid black;"
+                                      "background : grey;"
+                                      "}"
+                                      )
+
+
 
         # self.btn_message = QPushButton(self.topMenus)
         # self.btn_message.setObjectName(u"btn_message")
@@ -1626,8 +1696,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"PyDracula", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"Modern GUI / Flat Style", None))
+        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"Label Tool", None))
+        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"with AI", None))
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_open.setText(QCoreApplication.translate("MainWindow", u"Open files", None))
@@ -1649,6 +1719,7 @@ class Ui_MainWindow(object):
         #self.btn_share.setText(QCoreApplication.translate("MainWindow", u"Share", None))
         self.btn_adjustments.setText(QCoreApplication.translate("MainWindow", u"Adjustments", None))
         #self.btn_more.setText(QCoreApplication.translate("MainWindow", u"More", None))
+
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -1658,12 +1729,11 @@ class Ui_MainWindow(object):
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-inde"
                         "nt:0; text-indent:0px;\"><span style=\" color:#ffffff;\">Fraunhofer License</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: S. Bozhkov</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" "
-                        "style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
-        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"PyDracula APP - Theme with colors based on Dracula for Python.", None))
+#"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
+#"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
+#"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\"></span></p></body></html>", None))
+        self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"Labeling app", None))
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
@@ -1680,7 +1750,8 @@ class Ui_MainWindow(object):
         self.closeAppBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
-        self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
+        self.fileBox.setText(QCoreApplication.translate("MainWindow", u"File Box", None))
+        self.labelBox.setText(QCoreApplication.translate("MainWindow", u"Label Box", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Open", None))
@@ -1690,6 +1761,8 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Test 2", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Test 3", None))
+
+
 
         self.commandLinkButton.setText(QCoreApplication.translate("MainWindow", u"Link Button", None))
         self.commandLinkButton.setDescription(QCoreApplication.translate("MainWindow", u"Link description", None))
